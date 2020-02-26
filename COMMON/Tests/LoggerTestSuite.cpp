@@ -57,7 +57,7 @@ protected:
     }
 };
 
-INSTANTIATE_TEST_CASE_P(LoggerFunctions,
+INSTANTIATE_TEST_SUITE_P(LoggerFunctions,
                         LoggerTestSuite,
                         Values(ILogger::DEBUG_LEVEL,
                                ILogger::INFO_LEVEL,

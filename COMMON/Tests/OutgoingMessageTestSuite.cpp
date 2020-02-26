@@ -113,7 +113,7 @@ TEST_P(OutgoingMessageTestSuite, shallEncodeMessageHeaderAndTwoNumbersAndString)
                                        messageToSend.value.size() - sizeof(MessageHeader) - 3u));
 }
 
-INSTANTIATE_TEST_CASE_P(
+INSTANTIATE_TEST_SUITE_P(
         DifferentHeaders,
         OutgoingMessageTestSuite,
         Values(

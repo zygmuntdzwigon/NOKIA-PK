@@ -26,7 +26,7 @@ public:
         }
     };
 };
-TYPED_TEST_CASE_P(EnumTraitsTestSuite);
+TYPED_TEST_SUITE_P(EnumTraitsTestSuite);
 
 TYPED_TEST_P(EnumTraitsTestSuite, forEachShallUseAllEnumValues)
 {
@@ -40,7 +40,7 @@ TYPED_TEST_P(EnumTraitsTestSuite, forOneShallUseProperOneEnumValue)
 {
     ASSERT_EQ("B", (EnumRange<TypeParam>::template forOne<EnumTraitsTestSuite<TypeParam>::template GetName>(TypeParam::B)));
 }
-REGISTER_TYPED_TEST_CASE_P(EnumTraitsTestSuite,
+REGISTER_TYPED_TEST_SUITE_P(EnumTraitsTestSuite,
                            forEachShallUseAllEnumValues,
                            forOneShallUseProperOneEnumValue);
 
@@ -71,7 +71,7 @@ constexpr const char* EnumTraitsTestSuite<EnumTraitsStrictFollower>::template Ge
     return "C";
 }
 
-INSTANTIATE_TYPED_TEST_CASE_P(FollowEnumTraitsScheme, EnumTraitsTestSuite, EnumTraitsStrictFollower);
+INSTANTIATE_TYPED_TEST_SUITE_P(FollowEnumTraitsScheme, EnumTraitsTestSuite, EnumTraitsStrictFollower);
 
 enum class EnumTraitsFollowerButWithoutLast
 {
@@ -99,7 +99,7 @@ template <>
 struct EnumLast<EnumTraitsFollowerButWithoutLast>
         : std::integral_constant<EnumTraitsFollowerButWithoutLast, EnumTraitsFollowerButWithoutLast::C>
 {};
-INSTANTIATE_TYPED_TEST_CASE_P(FollowEnumTraitsSchemeButWithoutLast, EnumTraitsTestSuite, EnumTraitsFollowerButWithoutLast);
+INSTANTIATE_TYPED_TEST_SUITE_P(FollowEnumTraitsSchemeButWithoutLast, EnumTraitsTestSuite, EnumTraitsFollowerButWithoutLast);
 
 
 
@@ -144,5 +144,5 @@ constexpr const char* EnumTraitsTestSuite<EnumTraitsNotFollower>::template GetNa
     return "C";
 }
 
-INSTANTIATE_TYPED_TEST_CASE_P(NotFollowEnumTraits, EnumTraitsTestSuite, EnumTraitsNotFollower);
+INSTANTIATE_TYPED_TEST_SUITE_P(NotFollowEnumTraits, EnumTraitsTestSuite, EnumTraitsNotFollower);
 }
